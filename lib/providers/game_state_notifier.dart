@@ -35,18 +35,14 @@ class GameStateNotifier extends StateNotifier<GameState> {
   }
 
   Progress? _determineProgress() {
-    var finished = isFinished();
-    if (finished == null) {
-      return state.progress;
-    }
-    return Progress.finished(finished);
+    var _finished = isFinished();
+    return _finished == null ? state.progress : Progress.finished(_finished);
   }
 
   PlayerType _nextPlayer() {
-    if (state.currentPlayer == PlayerType.CIRCLE) {
-      return PlayerType.CROSS;
-    }
-    return PlayerType.CIRCLE;
+    return state.currentPlayer == PlayerType.CIRCLE
+        ? PlayerType.CROSS
+        : PlayerType.CIRCLE;
   }
 
   FinishedState? isFinished() {
@@ -72,18 +68,20 @@ class GameStateNotifier extends StateNotifier<GameState> {
         .toList();
 
     if (tiles.where((element) => element.y == element.x).toList().length == 3) {
-      return true;
+      return true; // \ as Tile(x: 0, y: 0), Tile(x: 1, y: 1), Tile(x: 2, y: 2)]
     }
     if (tiles.where((element) => 2 - element.y == element.x).toList().length ==
         3) {
-      return true;
+      return true; // / as [Tile(x: 0, y: 2), Tile(x: 1, y: 1), Tile(x: 2, y: 0)]
     }
     for (var i = 0; i < 3; i++) {
       if (tiles.where((tile) => tile.x == i).toList().length == 3) {
-        return true;
+        // ignore: lines_longer_than_80_chars
+        return true; // - like as [Tile(x: 1, y: 0), Tile(x: 1, y: 1), Tile(x: 1, y: 2)]
       }
       if (tiles.where((tile) => tile.y == i).toList().length == 3) {
-        return true;
+        // ignore: lines_longer_than_80_chars
+        return true; // | like as [Tile(x: 0, y: 0), Tile(x: 1, y: 0), Tile(x: 2, y: 0)]
       }
     }
     return false;

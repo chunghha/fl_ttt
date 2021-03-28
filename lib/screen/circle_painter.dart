@@ -10,11 +10,6 @@ class CirclePainter extends CustomPainter {
   CirclePainter(this.percentage);
 
   @override
-  bool shouldRepaint(CirclePainter oldDelegate) {
-    return oldDelegate.percentage != percentage;
-  }
-
-  @override
   void paint(Canvas canvas, Size size) {
     var radius = min(size.height, size.width) / 2 - 10;
     var center = Offset(size.width / 2, size.height / 2);
@@ -29,5 +24,10 @@ class CirclePainter extends CustomPainter {
           ..color = '#edecff'.toColor()
           ..strokeWidth = outerBorder
           ..style = PaintingStyle.stroke);
+  }
+
+  @override
+  bool shouldRepaint(CirclePainter oldDelegate) {
+    return oldDelegate.percentage != percentage;
   }
 }

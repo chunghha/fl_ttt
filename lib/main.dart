@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'screen/board.dart';
+import 'theme/colors.dart';
 import 'theme/nord.dart';
 
 void main() {
@@ -16,6 +17,8 @@ class TicTacToe extends StatelessWidget {
       theme: nordDarkTheme,
       home: Scaffold(
           appBar: AppBar(
+            backgroundColor: nordRed,
+            centerTitle: true,
             title: Text("Tic Tac Toe"),
           ),
           body: Board()),
