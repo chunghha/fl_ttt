@@ -30,9 +30,8 @@ class TileWidget extends HookWidget {
 
     switch (tileEntry.value) {
       case PlayerType.CROSS:
-        return crossWidget(_controller);
       case PlayerType.CIRCLE:
-        return circleWidget(_controller);
+        return paintPlayerWidget(_controller, tileEntry.value);
       case PlayerType.EMPTY:
         return emptyWidget(context, tileEntry.key);
     }
@@ -46,27 +45,17 @@ class TileWidget extends HookWidget {
         ));
   }
 
-  Widget crossWidget(AnimationController _controller) {
+  Widget paintPlayerWidget(
+      AnimationController _controller, PlayerType _player) {
     return AnimatedBuilder(
         animation: _controller,
         builder: (context, child) {
           return Container(
             color: _tileColor,
             child: CustomPaint(
-              painter: CrossPainter(_controller.value),
-            ),
-          );
-        });
-  }
-
-  Widget circleWidget(AnimationController _controller) {
-    return AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          return Container(
-            color: _tileColor,
-            child: CustomPaint(
-              painter: CirclePainter(_controller.value),
+              painter: _player == PlayerType.CIRCLE
+                  ? CirclePainter(_controller.value)
+                  : CrossPainter(_controller.value),
             ),
           );
         });
