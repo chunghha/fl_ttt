@@ -12,10 +12,10 @@ import '../widgets/tile_widget.dart';
 import '../widgets/winner_dialog.dart';
 
 final _currentTile = ScopedProvider<MapEntry<Tile, PlayerType>>(null);
-final _gameState =
-    StateNotifierProvider((_) => GameStateNotifier(GameState({})));
-final _progress = Provider((ref) => ref.watch(_gameState.state).progress);
-final _tiles = Provider((ref) => ref.watch(_gameState.state).tiles);
+final _gameState = StateNotifierProvider<GameStateNotifier, GameState>(
+    (_) => GameStateNotifier(GameState({})));
+final _progress = Provider((ref) => ref.watch(_gameState).progress);
+final _tiles = Provider((ref) => ref.watch(_gameState).tiles);
 
 class Board extends HookWidget {
   @override

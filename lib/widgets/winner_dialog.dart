@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../models/finished_state.dart';
+import '../models/game_state.dart';
 import '../providers/game_state_notifier.dart';
 import '../theme/colors.dart';
 
 class WinnerDialog extends StatelessWidget {
   final FinishedState _winner;
-  final StateNotifierProvider<GameStateNotifier> _gameState;
+  final StateNotifierProvider<GameStateNotifier, GameState> _gameState;
 
   WinnerDialog(this._winner, this._gameState);
 
@@ -48,7 +49,7 @@ class WinnerDialog extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            context.read(_gameState).reset();
+            context.read(_gameState.notifier).reset();
             Navigator.of(context).pop();
           },
           style: ElevatedButton.styleFrom(primary: nordRed),

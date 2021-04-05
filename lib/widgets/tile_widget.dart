@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../models/game_state.dart';
 import '../models/player_type.dart';
 import '../models/tile.dart';
 import '../providers/game_state_notifier.dart';
@@ -13,7 +14,7 @@ class TileWidget extends HookWidget {
   final Color _tileColor = nordBlue;
   final Duration _duration = const Duration(milliseconds: 500);
   final ScopedProvider<MapEntry<Tile, PlayerType>> _currentTile;
-  final StateNotifierProvider<GameStateNotifier> _gameState;
+  final StateNotifierProvider<GameStateNotifier, GameState> _gameState;
 
   TileWidget(this._currentTile, this._gameState);
 
@@ -39,7 +40,7 @@ class TileWidget extends HookWidget {
 
   Widget emptyWidget(BuildContext context, Tile tile) {
     return GestureDetector(
-        onTap: () => {context.read(_gameState).toggle(tile)},
+        onTap: () => {context.read(_gameState.notifier).toggle(tile)},
         child: Container(
           color: _tileColor,
         ));
