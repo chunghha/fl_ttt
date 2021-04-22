@@ -5,4 +5,5 @@ analyzer:
     - "**/*.freezed.dart"
 linter:
   rules:
+    avoid_dynamic_calls: true
     public_member_api_docs: false
