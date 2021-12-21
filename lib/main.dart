@@ -10,18 +10,21 @@ void main() {
 }
 
 class TicTacToe extends StatelessWidget {
+  const TicTacToe({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: nordDarkTheme,
       home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: nordRed,
-            centerTitle: true,
-            title: Text("Tic Tac Toe"),
-          ),
-          body: Board()),
+        appBar: AppBar(
+          backgroundColor: nordRed,
+          centerTitle: true,
+          title: Text('Tic Tac Toe'),
+        ),
+        body: Board(),
+      ),
     );
   }
 }

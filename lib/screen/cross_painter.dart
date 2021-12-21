@@ -11,30 +11,42 @@ class CrossPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     radius = math.min(size.height, size.width) / 2 - 10;
-    var center = Offset(size.width / 2, size.height / 2);
+    final _center = Offset(size.width / 2, size.height / 2);
 
-    var crossAngle = (math.pi * 2) / 8;
-    var crossAngle2 = crossAngle * 3;
-    createPath(canvas, center, crossAngle, math.min(100, percentage * 2));
-    createPath(canvas, center, crossAngle2, math.max(0, (percentage - 50) * 2));
+    const _crossAngle = (math.pi * 2) / 8;
+    const _crossAngle2 = _crossAngle * 3;
+
+    createPath(canvas, _center, _crossAngle, math.min(100, percentage * 2));
+    createPath(
+      canvas,
+      _center,
+      _crossAngle2,
+      math.max(0, (percentage - 50) * 2),
+    );
   }
 
-  void createPath(final Canvas canvas, final Offset center,
-      final double startingAngle, final double percentage) {
-    var paint = Paint()
+  void createPath(
+    final Canvas canvas,
+    final Offset center,
+    final double startingAngle,
+    final double percentage,
+  ) {
+    final paint = Paint()
       ..color = '#ffeced'.toColor()
       ..strokeWidth = 15;
-    var angle = math.pi;
+    const angle = math.pi;
 
-    var firstPoint = Offset(
-        radius * (percentage / 100) * math.cos(startingAngle),
-        radius * (percentage / 100) * math.sin(startingAngle));
-    var secondPoint = Offset(
-        radius * (percentage / 100) * math.cos(startingAngle + angle),
-        radius * (percentage / 100) * math.sin(startingAngle + angle));
-    var firstActualPoint =
+    final firstPoint = Offset(
+      radius * (percentage / 100) * math.cos(startingAngle),
+      radius * (percentage / 100) * math.sin(startingAngle),
+    );
+    final secondPoint = Offset(
+      radius * (percentage / 100) * math.cos(startingAngle + angle),
+      radius * (percentage / 100) * math.sin(startingAngle + angle),
+    );
+    final firstActualPoint =
         Offset(firstPoint.dx + center.dx, firstPoint.dy + center.dy);
-    var secondActualPoint =
+    final secondActualPoint =
         Offset(secondPoint.dx + center.dx, secondPoint.dy + center.dy);
     canvas.drawLine(firstActualPoint, secondActualPoint, paint);
   }

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'tile.dart';
 
@@ -105,6 +106,7 @@ class __$TileCopyWithImpl<$Res> extends _$TileCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_Tile implements _Tile {
   _$_Tile(this.x, this.y);
 
@@ -121,18 +123,17 @@ class _$_Tile implements _Tile {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Tile &&
-            (identical(other.x, x) ||
-                const DeepCollectionEquality().equals(other.x, x)) &&
-            (identical(other.y, y) ||
-                const DeepCollectionEquality().equals(other.y, y)));
+        (other.runtimeType == runtimeType &&
+            other is _Tile &&
+            const DeepCollectionEquality().equals(other.x, x) &&
+            const DeepCollectionEquality().equals(other.y, y));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(x) ^
-      const DeepCollectionEquality().hash(y);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(x),
+      const DeepCollectionEquality().hash(y));
 
   @JsonKey(ignore: true)
   @override
@@ -144,9 +145,9 @@ abstract class _Tile implements Tile {
   factory _Tile(int x, int y) = _$_Tile;
 
   @override
-  int get x => throw _privateConstructorUsedError;
+  int get x;
   @override
-  int get y => throw _privateConstructorUsedError;
+  int get y;
   @override
   @JsonKey(ignore: true)
   _$TileCopyWith<_Tile> get copyWith => throw _privateConstructorUsedError;

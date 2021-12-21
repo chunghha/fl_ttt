@@ -6,11 +6,12 @@ import '../models/game_state.dart';
 import '../providers/game_state_notifier.dart';
 import '../theme/colors.dart';
 
-class WinnerDialog extends StatelessWidget {
+class WinnerDialog extends ConsumerWidget {
   final FinishedState _winner;
   final StateNotifierProvider<GameStateNotifier, GameState> _gameState;
 
-  WinnerDialog(this._winner, this._gameState);
+  const WinnerDialog(this._winner, this._gameState, {Key? key})
+      : super(key: key);
 
   String subtitle() {
     if (_winner == FinishedState.CROSS) {
@@ -30,7 +31,7 @@ class WinnerDialog extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AlertDialog(
       title: Text(title()),
       content: SingleChildScrollView(
@@ -49,7 +50,7 @@ class WinnerDialog extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            context.read(_gameState.notifier).reset();
+            ref.read(_gameState.notifier).reset();
             Navigator.of(context).pop();
           },
           style: ElevatedButton.styleFrom(primary: nordRed),

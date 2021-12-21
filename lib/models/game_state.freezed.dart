@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'game_state.dart';
 
@@ -142,13 +143,14 @@ class __$GameStateCopyWithImpl<$Res> extends _$GameStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_GameState implements _GameState {
   _$_GameState(this.tiles,
       {this.currentPlayer = PlayerType.CIRCLE, this.progress});
 
   @override
   final Map<dynamic, dynamic> tiles;
-  @JsonKey(defaultValue: PlayerType.CIRCLE)
+  @JsonKey()
   @override
   final PlayerType currentPlayer;
   @override
@@ -162,23 +164,20 @@ class _$_GameState implements _GameState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _GameState &&
-            (identical(other.tiles, tiles) ||
-                const DeepCollectionEquality().equals(other.tiles, tiles)) &&
-            (identical(other.currentPlayer, currentPlayer) ||
-                const DeepCollectionEquality()
-                    .equals(other.currentPlayer, currentPlayer)) &&
-            (identical(other.progress, progress) ||
-                const DeepCollectionEquality()
-                    .equals(other.progress, progress)));
+        (other.runtimeType == runtimeType &&
+            other is _GameState &&
+            const DeepCollectionEquality().equals(other.tiles, tiles) &&
+            const DeepCollectionEquality()
+                .equals(other.currentPlayer, currentPlayer) &&
+            const DeepCollectionEquality().equals(other.progress, progress));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(tiles) ^
-      const DeepCollectionEquality().hash(currentPlayer) ^
-      const DeepCollectionEquality().hash(progress);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(tiles),
+      const DeepCollectionEquality().hash(currentPlayer),
+      const DeepCollectionEquality().hash(progress));
 
   @JsonKey(ignore: true)
   @override
@@ -191,11 +190,11 @@ abstract class _GameState implements GameState {
       {PlayerType currentPlayer, Progress? progress}) = _$_GameState;
 
   @override
-  Map<dynamic, dynamic> get tiles => throw _privateConstructorUsedError;
+  Map<dynamic, dynamic> get tiles;
   @override
-  PlayerType get currentPlayer => throw _privateConstructorUsedError;
+  PlayerType get currentPlayer;
   @override
-  Progress? get progress => throw _privateConstructorUsedError;
+  Progress? get progress;
   @override
   @JsonKey(ignore: true)
   _$GameStateCopyWith<_GameState> get copyWith =>

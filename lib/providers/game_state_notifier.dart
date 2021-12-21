@@ -8,13 +8,15 @@ import '../models/tile.dart';
 
 class GameStateNotifier extends StateNotifier<GameState> {
   GameStateNotifier(GameState state) : super(state) {
-    var tiles = <Tile, PlayerType>{};
+    final _tiles = <Tile, PlayerType>{};
+
     for (var x = 0; x < 3; x++) {
       for (var y = 0; y < 3; y++) {
-        tiles.putIfAbsent(Tile(x, y), () => PlayerType.EMPTY);
+        _tiles.putIfAbsent(Tile(x, y), () => PlayerType.EMPTY);
       }
     }
-    this.state = state.copyWith(tiles: tiles);
+
+    this.state = state.copyWith(tiles: _tiles);
   }
 
   void toggle(Tile tile) {
@@ -28,14 +30,15 @@ class GameStateNotifier extends StateNotifier<GameState> {
 
   void reset() {
     state = state.copyWith(
-        currentPlayer: PlayerType.CIRCLE,
-        progress: Progress.inProgress(),
-        tiles:
-            state.tiles.map((key, value) => MapEntry(key, PlayerType.EMPTY)));
+      currentPlayer: PlayerType.CIRCLE,
+      progress: Progress.inProgress(),
+      tiles: state.tiles.map((key, value) => MapEntry(key, PlayerType.EMPTY)),
+    );
   }
 
   Progress? _determineProgress() {
-    var _finished = isFinished();
+    final _finished = isFinished();
+
     return _finished == null ? state.progress : Progress.finished(_finished);
   }
 
@@ -58,11 +61,12 @@ class GameStateNotifier extends StateNotifier<GameState> {
         .isEmpty) {
       return FinishedState.DRAW;
     }
+
     return null;
   }
 
   bool _hasThreeInARow(PlayerType player) {
-    var tiles = state.tiles.entries
+    final tiles = state.tiles.entries
         .where((element) => element.value == player)
         .map((e) => e.key)
         .toList();
@@ -74,6 +78,7 @@ class GameStateNotifier extends StateNotifier<GameState> {
         3) {
       return true; // / as [Tile(x: 0, y: 2), Tile(x: 1, y: 1), Tile(x: 2, y: 0)]
     }
+
     for (var i = 0; i < 3; i++) {
       if (tiles.where((tile) => tile.x == i).toList().length == 3) {
         // ignore: lines_longer_than_80_chars
@@ -84,6 +89,7 @@ class GameStateNotifier extends StateNotifier<GameState> {
         return true; // | like as [Tile(x: 0, y: 0), Tile(x: 1, y: 0), Tile(x: 2, y: 0)]
       }
     }
+
     return false;
   }
 }

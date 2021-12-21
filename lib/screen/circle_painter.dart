@@ -11,19 +11,21 @@ class CirclePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    var radius = min(size.height, size.width) / 2 - 10;
-    var center = Offset(size.width / 2, size.height / 2);
-    var outerRect =
-        Rect.fromCircle(center: center, radius: radius - (outerBorder) / 2);
+    final _radius = min(size.height, size.width) / 2 - 10;
+    final _center = Offset(size.width / 2, size.height / 2);
+    final _outerRect =
+        Rect.fromCircle(center: _center, radius: _radius - (outerBorder) / 2);
+
     canvas.drawArc(
-        outerRect,
-        1.5 * pi,
-        2 * pi * (percentage / 100),
-        false,
-        Paint()
-          ..color = '#edecff'.toColor()
-          ..strokeWidth = outerBorder
-          ..style = PaintingStyle.stroke);
+      _outerRect,
+      1.5 * pi,
+      2 * pi * (percentage / 100),
+      false,
+      Paint()
+        ..color = '#edecff'.toColor()
+        ..strokeWidth = outerBorder
+        ..style = PaintingStyle.stroke,
+    );
   }
 
   @override
