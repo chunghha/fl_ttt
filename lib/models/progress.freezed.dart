@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'progress.dart';
@@ -17,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ProgressTearOff {
   const _$ProgressTearOff();
 
-  Finished finished(FinishedState winner) {
+  Finished finished(FINISHED_STATE winner) {
     return Finished(
       winner,
     );
@@ -35,19 +36,19 @@ const $Progress = _$ProgressTearOff();
 mixin _$Progress {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FinishedState winner) finished,
+    required TResult Function(FINISHED_STATE winner) finished,
     required TResult Function() inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FinishedState winner)? finished,
+    TResult Function(FINISHED_STATE winner)? finished,
     TResult Function()? inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FinishedState winner)? finished,
+    TResult Function(FINISHED_STATE winner)? finished,
     TResult Function()? inProgress,
     required TResult orElse(),
   }) =>
@@ -92,7 +93,7 @@ class _$ProgressCopyWithImpl<$Res> implements $ProgressCopyWith<$Res> {
 abstract class $FinishedCopyWith<$Res> {
   factory $FinishedCopyWith(Finished value, $Res Function(Finished) then) =
       _$FinishedCopyWithImpl<$Res>;
-  $Res call({FinishedState winner});
+  $Res call({FINISHED_STATE winner});
 }
 
 /// @nodoc
@@ -112,7 +113,7 @@ class _$FinishedCopyWithImpl<$Res> extends _$ProgressCopyWithImpl<$Res>
       winner == freezed
           ? _value.winner
           : winner // ignore: cast_nullable_to_non_nullable
-              as FinishedState,
+              as FINISHED_STATE,
     ));
   }
 }
@@ -123,7 +124,7 @@ class _$Finished implements Finished {
   _$Finished(this.winner);
 
   @override
-  final FinishedState winner;
+  final FINISHED_STATE winner;
 
   @override
   String toString() {
@@ -150,7 +151,7 @@ class _$Finished implements Finished {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FinishedState winner) finished,
+    required TResult Function(FINISHED_STATE winner) finished,
     required TResult Function() inProgress,
   }) {
     return finished(winner);
@@ -159,7 +160,7 @@ class _$Finished implements Finished {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FinishedState winner)? finished,
+    TResult Function(FINISHED_STATE winner)? finished,
     TResult Function()? inProgress,
   }) {
     return finished?.call(winner);
@@ -168,7 +169,7 @@ class _$Finished implements Finished {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FinishedState winner)? finished,
+    TResult Function(FINISHED_STATE winner)? finished,
     TResult Function()? inProgress,
     required TResult orElse(),
   }) {
@@ -211,9 +212,9 @@ class _$Finished implements Finished {
 }
 
 abstract class Finished implements Progress {
-  factory Finished(FinishedState winner) = _$Finished;
+  factory Finished(FINISHED_STATE winner) = _$Finished;
 
-  FinishedState get winner;
+  FINISHED_STATE get winner;
   @JsonKey(ignore: true)
   $FinishedCopyWith<Finished> get copyWith =>
       throw _privateConstructorUsedError;
@@ -258,7 +259,7 @@ class _$InProgress implements InProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FinishedState winner) finished,
+    required TResult Function(FINISHED_STATE winner) finished,
     required TResult Function() inProgress,
   }) {
     return inProgress();
@@ -267,7 +268,7 @@ class _$InProgress implements InProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FinishedState winner)? finished,
+    TResult Function(FINISHED_STATE winner)? finished,
     TResult Function()? inProgress,
   }) {
     return inProgress?.call();
@@ -276,7 +277,7 @@ class _$InProgress implements InProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FinishedState winner)? finished,
+    TResult Function(FINISHED_STATE winner)? finished,
     TResult Function()? inProgress,
     required TResult orElse(),
   }) {

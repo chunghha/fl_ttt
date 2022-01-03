@@ -1,43 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../models/finished_state.dart';
-import '../models/game_state.dart';
-import '../providers/game_state_notifier.dart';
+import '../models/finished_state.enum.dart';
+import '../pods/game.pod.dart';
 import '../theme/colors.dart';
 
 class WinnerDialog extends ConsumerWidget {
-  final FinishedState _winner;
-  final StateNotifierProvider<GameStateNotifier, GameState> _gameState;
+  final FINISHED_STATE _winner;
 
-  const WinnerDialog(this._winner, this._gameState, {Key? key})
-      : super(key: key);
-
-  String subtitle() {
-    if (_winner == FinishedState.CROSS) {
-      return 'Cross won!';
-    }
-    if (_winner == FinishedState.CIRCLE) {
-      return 'Circle won!';
-    }
-    return 'Neither has won!';
-  }
-
-  String title() {
-    if (_winner == FinishedState.DRAW) {
-      return 'Call it a draw!';
-    }
-    return 'We have a winner!';
-  }
+  const WinnerDialog(this._winner, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AlertDialog(
-      title: Text(title()),
+      title: Text(_winner.toTitle()),
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
-            Text(subtitle()),
+            Text(_winner.toSubtitle()),
           ],
         ),
       ),
@@ -50,7 +30,7 @@ class WinnerDialog extends ConsumerWidget {
             ),
           ),
           onPressed: () {
-            ref.read(_gameState.notifier).reset();
+            ref.read(gameStatePod.notifier).reset();
             Navigator.of(context).pop();
           },
           style: ElevatedButton.styleFrom(primary: nordRed),

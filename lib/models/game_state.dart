@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'player_type.dart';
+import 'player_type.enum.dart';
 import 'progress.dart';
 
 part 'game_state.freezed.dart';
@@ -9,7 +9,7 @@ part 'game_state.freezed.dart';
 class GameState with _$GameState {
   factory GameState(
     Map tiles, {
-    @Default(PlayerType.CIRCLE) PlayerType currentPlayer,
+    @Default(PLAYER_TYPE.circle) PLAYER_TYPE currentPlayer,
     Progress? progress,
   }) = _GameState;
 }

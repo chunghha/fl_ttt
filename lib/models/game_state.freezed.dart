@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'game_state.dart';
@@ -18,7 +19,7 @@ class _$GameStateTearOff {
   const _$GameStateTearOff();
 
   _GameState call(Map<dynamic, dynamic> tiles,
-      {PlayerType currentPlayer = PlayerType.CIRCLE, Progress? progress}) {
+      {PLAYER_TYPE currentPlayer = PLAYER_TYPE.circle, Progress? progress}) {
     return _GameState(
       tiles,
       currentPlayer: currentPlayer,
@@ -33,7 +34,7 @@ const $GameState = _$GameStateTearOff();
 /// @nodoc
 mixin _$GameState {
   Map<dynamic, dynamic> get tiles => throw _privateConstructorUsedError;
-  PlayerType get currentPlayer => throw _privateConstructorUsedError;
+  PLAYER_TYPE get currentPlayer => throw _privateConstructorUsedError;
   Progress? get progress => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -47,7 +48,7 @@ abstract class $GameStateCopyWith<$Res> {
       _$GameStateCopyWithImpl<$Res>;
   $Res call(
       {Map<dynamic, dynamic> tiles,
-      PlayerType currentPlayer,
+      PLAYER_TYPE currentPlayer,
       Progress? progress});
 
   $ProgressCopyWith<$Res>? get progress;
@@ -75,7 +76,7 @@ class _$GameStateCopyWithImpl<$Res> implements $GameStateCopyWith<$Res> {
       currentPlayer: currentPlayer == freezed
           ? _value.currentPlayer
           : currentPlayer // ignore: cast_nullable_to_non_nullable
-              as PlayerType,
+              as PLAYER_TYPE,
       progress: progress == freezed
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
@@ -103,7 +104,7 @@ abstract class _$GameStateCopyWith<$Res> implements $GameStateCopyWith<$Res> {
   @override
   $Res call(
       {Map<dynamic, dynamic> tiles,
-      PlayerType currentPlayer,
+      PLAYER_TYPE currentPlayer,
       Progress? progress});
 
   @override
@@ -133,7 +134,7 @@ class __$GameStateCopyWithImpl<$Res> extends _$GameStateCopyWithImpl<$Res>
       currentPlayer: currentPlayer == freezed
           ? _value.currentPlayer
           : currentPlayer // ignore: cast_nullable_to_non_nullable
-              as PlayerType,
+              as PLAYER_TYPE,
       progress: progress == freezed
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
@@ -146,13 +147,13 @@ class __$GameStateCopyWithImpl<$Res> extends _$GameStateCopyWithImpl<$Res>
 
 class _$_GameState implements _GameState {
   _$_GameState(this.tiles,
-      {this.currentPlayer = PlayerType.CIRCLE, this.progress});
+      {this.currentPlayer = PLAYER_TYPE.circle, this.progress});
 
   @override
   final Map<dynamic, dynamic> tiles;
   @JsonKey()
   @override
-  final PlayerType currentPlayer;
+  final PLAYER_TYPE currentPlayer;
   @override
   final Progress? progress;
 
@@ -187,12 +188,12 @@ class _$_GameState implements _GameState {
 
 abstract class _GameState implements GameState {
   factory _GameState(Map<dynamic, dynamic> tiles,
-      {PlayerType currentPlayer, Progress? progress}) = _$_GameState;
+      {PLAYER_TYPE currentPlayer, Progress? progress}) = _$_GameState;
 
   @override
   Map<dynamic, dynamic> get tiles;
   @override
-  PlayerType get currentPlayer;
+  PLAYER_TYPE get currentPlayer;
   @override
   Progress? get progress;
   @override
